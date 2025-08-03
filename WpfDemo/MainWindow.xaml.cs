@@ -19,6 +19,14 @@ namespace WpfDemo
         public MainWindow()
         {
             InitializeComponent();
+            Button myButton=new Button();
+            myButton.Content = "B";
+
+            Grid.SetRow(myButton, 3);
+            Grid.SetColumn(myButton, 4);
+
+            Grid grid = (Grid)FindName("myGrid");
+            grid.Children.Add(myButton);
         }
     }
 }
