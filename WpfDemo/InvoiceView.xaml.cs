@@ -16,18 +16,14 @@ using System.Windows.Shapes;
 namespace WpfDemo
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for InvoiceView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class InvoiceView : UserControl
     {
-        public LoginView()
+        public InvoiceView()
         {
             InitializeComponent();
         }
-        private void LoginButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            Window window = Window.GetWindow(this); // 'this' 34an m3nda4 8er window wa7da aslun(elly heya el MainWindow) 
-            window.Content=new InvoiceView();
-        }
+
     }
 }
