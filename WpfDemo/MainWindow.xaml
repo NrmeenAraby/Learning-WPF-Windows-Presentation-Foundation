@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="myGrid">
-        <Grid.ColumnDefinitions>
+        <!-- <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -25,11 +25,9 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="1" Grid.Column="2" Content="Title of App" />
-        <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Content="Sample Text Sample Text Sample Text Sample Text Sample Text" /> 
-        <Button Grid.Row="3" Grid.Column="2" Content="A" Height="50"/>
-      
-
-
+        <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Content="Sample Text Sample Text Sample Text Sample Text Sample Text" />
+        <Button Grid.Row="3" Grid.Column="2" Content="A" Height="50" Click="Button_Click"/> -->
+        <ContentControl x:Name="MainContent"/>
 
     </Grid>
 </Window>
