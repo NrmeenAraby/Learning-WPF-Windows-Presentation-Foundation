@@ -17,10 +17,15 @@ namespace WpfDemo
     /// </summary>
     public partial class MainWindow : Window
     {
-        Person person = new Person
+        /*Person person = new Person
         {
             Name = "Nrmeen",
             Age = 21
+        };*/
+        List<Person> people=new List<Person> { 
+         new Person{Name="Nrmeen",Age=21},
+         new Person{Name="Aya",Age=21},
+         new Person{Name="Ahmed",Age=21 }
         };
         public MainWindow()
         {
@@ -35,18 +40,23 @@ namespace WpfDemo
             Grid grid = (Grid)FindName("myGrid");
             grid.Children.Add(myButton);*/
 
-           // MainContent.Content = new LoginView();
-           this.DataContext = person; 
+            /// CONTENTCONTROL ///
+            // MainContent.Content = new LoginView();
+
+            /// DATABINDING ///
+            //this.DataContext = person; 
+
+            ListBoxNames.ItemsSource = people;
         }
 
         /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Heyaaaa");
         }*/
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             string personData=person.Name + " is "+person.Age +" years old";
             MessageBox.Show(personData);
-        }
+        }*/
     }
 }
