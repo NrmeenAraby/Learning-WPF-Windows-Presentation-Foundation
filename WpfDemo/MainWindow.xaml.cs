@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfDemo.Data;
 
 namespace WpfDemo
 {
@@ -16,6 +17,11 @@ namespace WpfDemo
     /// </summary>
     public partial class MainWindow : Window
     {
+        Person person = new Person
+        {
+            Name = "Nrmeen",
+            Age = 21
+        };
         public MainWindow()
         {
             InitializeComponent();
@@ -29,12 +35,18 @@ namespace WpfDemo
             Grid grid = (Grid)FindName("myGrid");
             grid.Children.Add(myButton);*/
 
-            MainContent.Content = new LoginView();
+           // MainContent.Content = new LoginView();
+           this.DataContext = person; 
         }
 
         /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Heyaaaa");
         }*/
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string personData=person.Name + " is "+person.Age +" years old";
+            MessageBox.Show(personData);
+        }
     }
 }
