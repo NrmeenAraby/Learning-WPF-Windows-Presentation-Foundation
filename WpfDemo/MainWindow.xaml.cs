@@ -46,7 +46,16 @@ namespace WpfDemo
             /// DATABINDING ///
             //this.DataContext = person; 
 
-            ListBoxNames.ItemsSource = people;
+            ListBoxPeople.ItemsSource = people;
+        }
+
+        private void Button_Click_selected(object sender, RoutedEventArgs e)
+        {
+            var selectedItems= ListBoxPeople.SelectedItems;
+            foreach (var item in selectedItems) { 
+                Person person =(Person) item ;
+                MessageBox.Show(person.Name);
+            }
         }
 
         /*private void Button_Click(object sender, RoutedEventArgs e)

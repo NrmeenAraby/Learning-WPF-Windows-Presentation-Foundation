@@ -65,8 +65,10 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="ListBoxNames" Grid.Row="1" Grid.Column="1">
+        <ListBox x:Name="ListBoxPeople" SelectionMode="Multiple" Grid.Row="1" Grid.Column="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -76,5 +78,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button Content="Show Selected" Grid.Column="1" Grid.Row="3" Click="Button_Click_selected" />
     </Grid>
 </Window>
