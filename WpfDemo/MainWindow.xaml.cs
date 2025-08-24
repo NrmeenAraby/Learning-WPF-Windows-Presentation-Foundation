@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Diagnostics;
+using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -56,6 +58,40 @@ namespace WpfDemo
                 Person person =(Person) item ;
                 MessageBox.Show(person.Name);
             }
+        }
+
+        //Preventing freezing 
+        private void freezButton_Click_selected(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() =>
+            {
+                Debug.WriteLine($"Thread No. {Thread.CurrentThread.ManagedThreadId}");
+                HttpClient webClient = new HttpClient();
+                var data = webClient.GetByteArrayAsync("http://ipv4.download.thinkbroadband.com/20MB.zip");
+                myButton.Dispatcher.Invoke(() =>
+                {
+                    Debug.WriteLine($"Thread No. {Thread.CurrentThread.ManagedThreadId} owns myButton");
+                    myButton.Content = "Done";
+
+                });
+            });
+           
+        }
+
+        //A better way
+        private async void freezButton_Click_selected2(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine($"Thread No. {Thread.CurrentThread.ManagedThreadId}  before wait task");
+
+            await Task.Run(async () =>
+            {
+                Debug.WriteLine($"Thread No. {Thread.CurrentThread.ManagedThreadId}");
+                HttpClient webClient = new HttpClient();
+                var data = webClient.GetByteArrayAsync("http://ipv4.download.thinkbroadband.com/20MB.zip");
+               
+            });
+            Debug.WriteLine($"Thread No. {Thread.CurrentThread.ManagedThreadId}  after wait task");
+            myButton.Content = "Done";
         }
 
         /*private void Button_Click(object sender, RoutedEventArgs e)

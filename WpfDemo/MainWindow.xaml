@@ -28,7 +28,7 @@
         <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Content="Sample Text Sample Text Sample Text Sample Text Sample Text" />
         <Button Grid.Row="3" Grid.Column="2" Content="A" Height="50" Click="Button_Click"/> -->
         <!-- <ContentControl x:Name="MainContent"/> -->
-       <!-- <Grid.RowDefinitions>
+        <!-- <Grid.RowDefinitions>
             <RowDefinition Height = "10" />
             <RowDefinition Height = "Auto" />
             <RowDefinition Height = "Auto" />
@@ -78,6 +78,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Show Selected" Grid.Column="1" Grid.Row="3" Click="Button_Click_selected" />
+        <Button Content="Show Selected" Grid.Column="1" Grid.Row="2" Click="Button_Click_selected" Margin="0,10,0,25" Grid.RowSpan="2" />
+        <Button x:Name="myButton" Content="Tasks with wpf so it wont freez" Grid.Column="1" Grid.Row="3" Click="freezButton_Click_selected2" Margin="5,30,5,0" Grid.ColumnSpan="2" />
     </Grid>
 </Window>
